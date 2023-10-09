@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Logo from "./Logo";
-import Form from "./Form";
-import PackingList from "./PackingList";
 import Stats from "./Stats";
+import PackingList from "./PackingList";
+import Form from "./Form";
+import Logo from "./Logo";
 
 export default function App() {
   const [items, setItems] = useState([]);
 
-  function handleAddItems(item) {
+  function handleAddItem(item) {
     setItems((items) => [...items, item]);
   }
 
@@ -15,7 +15,7 @@ export default function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
-  function handleToggleItem(id) {
+  function handleToggleItems(id) {
     setItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
@@ -23,7 +23,7 @@ export default function App() {
     );
   }
 
-  function handleClearList() {
+  function handleDeleteAll() {
     const confirmed = window.confirm(
       "Are you sure you want to delete all items?"
     );
@@ -34,12 +34,12 @@ export default function App() {
   return (
     <div className="app">
       <Logo />
-      <Form onAddItems={handleAddItems} />
+      <Form onAddItem={handleAddItem} />
       <PackingList
         items={items}
         onDeleteItem={handleDeleteItem}
-        onToggleItem={handleToggleItem}
-        onClearList={handleClearList}
+        onToggleItem={handleToggleItems}
+        onDeleteAll={handleDeleteAll}
       />
       <Stats items={items} />
     </div>
