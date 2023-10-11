@@ -1,0 +1,21 @@
+.containerStyle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.starContainerStyle {
+  display: flex;
+}
+
+.textStyle {
+  line-height: 1;
+  margin: 0px;
+}
+
+.starButton {
+  width: 48px;
+  height: 48px;
+  display: block;
+  cursor: pointer;
+}
