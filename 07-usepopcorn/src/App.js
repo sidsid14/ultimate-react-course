@@ -7,7 +7,7 @@ const average = (arr) =>
 const API_KEY = "17eedf8";
 
 export default function App() {
-  const [query, setQuery] = useState("inception");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
@@ -52,8 +52,10 @@ export default function App() {
           setMovies(data.Search);
           setError("");
         } catch (e) {
-          console.log(e);
-          if (e.name !== "AbortError") setError(e.message);
+          if (e.name !== "AbortError") {
+            console.log(e);
+            setError(e.message);
+          }
         } finally {
           setIsLoading(false);
         }
@@ -65,6 +67,7 @@ export default function App() {
         return;
       }
 
+      handleMovieDetailsClose();
       fetchMovies();
 
       return function () {
@@ -372,7 +375,7 @@ function WatchedSummary({ watched }) {
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{avgRuntime.toFixed(1)} min</span>
         </p>
       </div>
     </div>
