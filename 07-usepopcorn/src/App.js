@@ -180,6 +180,23 @@ function MovieDetails({ selectedId, onClose, onAddWatchedMovie, watched }) {
     },
     [title]
   );
+
+  useEffect(
+    function () {
+      function listenToEscape(event) {
+        if (event.code === "Escape") {
+          onClose();
+        }
+      }
+
+      document.addEventListener("keydown", listenToEscape);
+      return function () {
+        document.removeEventListener("keydown", listenToEscape);
+      };
+    },
+    [onClose]
+  );
+
   return (
     <div className="details">
       {isLoading ? (
