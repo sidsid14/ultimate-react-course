@@ -257,3 +257,11 @@ progress {
   font-size: inherit;
   padding: 0.8rem;
 }
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
