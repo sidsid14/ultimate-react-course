@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageNav from "../components/PageNav";
 
 function Home() {
@@ -5,6 +6,7 @@ function Home() {
     <div>
       <PageNav />
       <h1>SaveMyTrips</h1>
+      <Link to="/app">Go to App</Link>
     </div>
   );
 }
