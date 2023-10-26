@@ -35,6 +35,42 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Encamp",
+      "country": "Andorra",
+      "emoji": "🇦🇩",
+      "date": "2023-10-26T03:49:41.063Z",
+      "notes": "camp nou",
+      "position": {
+        "lat": "42.53689200787317",
+        "lng": "1.56005859375"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Celles",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-10-26T03:53:14.001Z",
+      "notes": "celles",
+      "position": {
+        "lat": "45.29034662473615",
+        "lng": "0.37353515625000006"
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Mediterranean Sea",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2023-10-26T03:55:37.978Z",
+      "notes": "alger",
+      "position": {
+        "lat": "37.07271048132946",
+        "lng": "3.6474609375000004"
+      },
+      "id": 98443200
     }
   ]
 }
