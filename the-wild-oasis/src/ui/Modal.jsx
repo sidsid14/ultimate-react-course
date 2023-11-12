@@ -6,6 +6,8 @@ import { createContext } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { cloneElement } from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -77,13 +79,28 @@ function Open({ children, opens: opensWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
+  const ref = useRef();
+
+  useEffect(
+    function () {
+      function handleClick(e) {
+        if (ref.current && !ref.current.contains(e.target)) {
+          close();
+        }
+      }
+      document.addEventListener("click", handleClick, true);
+
+      return () => document.removeEventListener("click", handleClick, true);
+    },
+    [close]
+  );
 
   if (name !== openName) return null;
 
   if (name)
     return createPortal(
       <Overlay>
-        <StyledModal>
+        <StyledModal ref={ref}>
           <Button onClick={close}>
             <HiXMark />
           </Button>
